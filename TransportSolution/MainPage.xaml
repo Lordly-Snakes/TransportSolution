@@ -1,0 +1,98 @@
+﻿<Page
+    x:Class="TransportSolution.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TransportSolution"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    mc:Ignorable="d"
+
+    Background="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}" d:DesignWidth="1084.5">
+    <Grid >
+
+        <Border  x:Name="progress" Visibility="Collapsed">
+            <muxc:ProgressRing Background="#FFD6D6D6" Foreground="#FF0461B3" Height="101" Width="101"/>
+        </Border>
+        <Grid>
+        <Grid.RowDefinitions>
+                <RowDefinition Height="Auto">
+
+                </RowDefinition>
+                <RowDefinition Height="Auto">
+
+            </RowDefinition>
+            <RowDefinition  Height="Auto">
+
+            </RowDefinition>
+            <RowDefinition  Height="Auto">
+
+            </RowDefinition>
+            <RowDefinition Height="Auto">
+
+            </RowDefinition>
+            <RowDefinition>
+
+            </RowDefinition>
+        </Grid.RowDefinitions>
+
+            <AppBar Grid.Row="0">
+                <AppBarButton Label="Settings" Icon="Setting" Click="AppBarButton_Click">
+                </AppBarButton>
+            </AppBar>
+
+            <TextBlock Grid.Row="1" TextAlignment="Center" FontSize="33" FontFamily="Verdana" SelectionChanged="TextBlock_SelectionChanged" Margin="10,40,10,30" MaxLines="3" TextWrapping="WrapWholeWords" >
+            Решение транспортных задач
+        </TextBlock>
+        <ComboBox Grid.Row="2" x:Name="selector" FontSize="24" Margin="10,0,10,0" Height="47" HorizontalAlignment="Stretch" SelectedIndex="0">
+            <ComboBoxItem>
+                Решение методом северо-западного угла
+            </ComboBoxItem>
+            <ComboBoxItem>
+                Решение методом наименьшой стоимости
+            </ComboBoxItem>
+            <ComboBoxItem>
+                Решение методом Фогеля
+            </ComboBoxItem>
+        </ComboBox>
+        <Grid Grid.Row="5" Margin="0,0,0,0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid x:Name="gridData" Grid.Column="0">
+
+            </Grid>
+            <Grid  Grid.Column="1">
+                    <Border Background="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}"  Margin="10,0,10,10" CornerRadius="5">
+                        <ListBox  HorizontalContentAlignment="Center" x:Name="list" Width="150px" FontSize="10">
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                            </Style>
+                        </ListBox.ItemContainerStyle>
+                    </ListBox>
+                </Border>
+
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="3"  Height="69" VerticalAlignment="Top" Margin="0,0,10,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2.5*"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBox Margin="10,10,10,0"
+                  Grid.Column="0"   
+                  x:Name="pathText" TextWrapping="Wrap"  VerticalAlignment="Top" Height="47"  FlowDirection="LeftToRight" TextAlignment="Left" FontSize="24"/>
+            <Button Grid.Column="1" Margin="0,10,0,0"
+                 x:Name="ButOpen" Click="ButOpen_Click"  VerticalAlignment="Top" Height="47" Width="150" FontSize="22" HorizontalAlignment="Right">Обзор</Button>
+        </Grid>
+        <Grid Grid.Row="4"  Height="60" VerticalAlignment="Top" Margin="0,0,0,0">
+            <Button Margin="10,0,10,0"
+                 x:Name="ButExecute" Click="ButExecute_Click"   VerticalAlignment="Top" Height="47" FontSize="22" HorizontalAlignment="Stretch">Выполнить</Button>
+        </Grid>
+
+    </Grid>
+    </Grid>
+</Page>
